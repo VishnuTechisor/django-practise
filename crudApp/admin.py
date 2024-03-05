@@ -11,3 +11,4 @@ from .models import *
 
 admin.site.register(userModel)
 admin.site.register(blogModel)
+admin.site.register(formModel)

@@ -10,7 +10,7 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import blogModel
+from .models import *
 
 
 def home(request):
@@ -18,9 +18,22 @@ def home(request):
     return render(request,"base.html",{"post":post})
 
 def showData(request):
-    return HttpResponse("<h1>welcome to my channel </h1>")
+    post=formModel.objects.all()
+    return render(request,"show.html",{"post":post})
 
 def create(request):
     return HttpResponse("<h2>create user Data </h2>")
+
 def showTable(request):
-    return render(request,"index.html",{"name":"vishnu..........!!!"})
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        image = request.FILES.get("image")
+        description = request.POST.get("description")
+        
+        # Create a new instance of the formModel and save it
+        form_instance = formModel(name=name, email=email, image=image, description=description)
+        form_instance.save()
+    
+    post = formModel.objects.all()
+    return render(request, "index.html", {"post": post})

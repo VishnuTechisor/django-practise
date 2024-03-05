@@ -25,5 +25,16 @@ class blogModel(models.Model):
       def __str__(self):
          return self.title
      
+     
+class formModel(models.Model):
+      name=models.CharField( max_length=50)      
+      email=models.CharField( max_length=50)
+      image=models.ImageField(upload_to="images/")
+      description=models.TextField( max_length=500)
+      createdAt=models.DateTimeField(default=datetime.now)
+      def __str__(self):
+         return self.name
+     
+      
       
       

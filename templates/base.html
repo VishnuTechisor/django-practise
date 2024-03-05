@@ -30,7 +30,7 @@
       <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/show">show</a>
@@ -47,7 +47,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/showtable">show Table</a>
+            <a class="nav-link" href="/showtable">create</a>
           </li>
         </ul>
         <form class="d-flex">
@@ -59,7 +59,7 @@
   </head>
   <body>
     
-    {% block content %}
+    {% block content %} 
     
     {% for i in post %}
       <b>{{i.title}} </b><br/>

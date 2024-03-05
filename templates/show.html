@@ -57,38 +57,19 @@
       </nav>
 </head>
 <body>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="form-row align-items-center mt-5">
-          <div class="col-sm-3 my-1 mx-5">
-            <label class="sr-only" for="inlineFormInputName">Name</label>
-            <input type="text" class="form-control" id="inlineFormInputName" placeholder="Jane Doe" name="name">
-          </div>
-          <div class="col-sm-3 my-1">
-            <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text">@</div>
-              </div>
-              <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username" name="email">
-            </div>
-          </div>
-          <div class="col-sm-3 my-1 mx-5">
-          <div class="form-group">
-            <label for="exampleFormControlFile1">Example file input</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
-          </div>
-        </div>
-          <div class="col-sm-3 my-1 mx-5">
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Example textarea</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
-            </div>
-          </div>
-          <div class="col-sm-3 my-1">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </div>
-      </form>
+
+{% block content %}
+
+
+{% for i in post %}
+   <b> {{i.name}}</b><br/>
+   {{i.email}}<br/>
+   <img src="{{i.image.url}}" alt="img"><br/>
+   {{i.description}}<br/><br/>
+{% endfor %}
+    
+    
+{% endblock content %}
+    
 </body>
 </html>
